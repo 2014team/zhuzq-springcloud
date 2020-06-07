@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: 00-provider-8081  # 暴露微服务名称
+
+# 指定Eureka服务中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka
+      #defaultZone: http://eureka8100.com:8100/eureka,http://eureka8200.com:8200/eureka,http://eureka8300.com:8300/eureka
+  # 指定当前客户端主机在注册中心的名称
+  instance:
+    instance-id: 00-provider-8081
