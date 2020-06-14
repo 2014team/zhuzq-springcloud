@@ -4,12 +4,25 @@ server:
 spring:
   application:
     name: 00-provider-8081  # 暴露微服务名称
+  #链接eureka用户验证
+  security:
+    basic:
+      enable: true #开启基于HTTP basic的认证
+    user: #配置用户的账号信息
+      name: zzq
+      password: 123456
+
+  rabbitmq:
+    host: 112.74.216.57
+    port: 5672
+    username: admin
+    password: admin
 
 # 指定Eureka服务中心
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8000/eureka
+      defaultZone: http://zzq:123456@127.0.0.1:8000/eureka
       #defaultZone: http://eureka8100.com:8100/eureka,http://eureka8200.com:8200/eureka,http://eureka8300.com:8300/eureka
   # 指定当前客户端主机在注册中心的名称
   instance:
